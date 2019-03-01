@@ -10,6 +10,11 @@ from urllib.parse import urlsplit
 from commands.common import CONTEXT_SETTINGS, common_params
 
 
+def is_subpath(path, subpath):
+    subpath = os.path.abspath(subpath)
+    path = os.path.abspath(path)
+    return subpath.startswith(path+os.sep)
+
 def fetch_title(url):
     r = requests.get(url)
     tree = fromstring(r.content)
@@ -138,7 +143,11 @@ def backup2github(resource_list, github_token, destination, yes, verbose, debug,
 
             filepath = os.path.join(filepath, filename)
 
-            # TODO: Do a safety check to ensure we're not outside destination path.
+            # Drop out if the frontmatter is trying to escape root-dir.
+            if not is_subpath(destination, filepath):
+                click.echo('File {} tried to write outside destination root-dir.'.format(filename))
+                raise
+
             click.echo('Writing file: ' + filepath)
             if not noop:
                 with open(filepath, 'w') as f:
