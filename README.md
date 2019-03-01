@@ -7,9 +7,9 @@ Many of these run automatically.
 ## Contents
 
 - Scripts
-  - `backup2github` command
-- Technologies Used
-- Local Development
+  - [`backup2github` command](#backup2github-command)
+- [Technologies Used](#technologies-used)
+- [Local Development](#computer-local-development)
 
 ## Scripts
 
@@ -19,14 +19,40 @@ Many of these run automatically.
 $ pipenv run python cli.py backup2github --help
 Usage: cli.py backup2github [OPTIONS]
 
-  Backup a list of URLs to a GitHub repository.
+  Backup a list of URLs to a destination directory or GitHub repo.
 
-  Currently supports: HackMD.
+  The format of the --resource-list is expected to be a local CSV. Columns
+  are as follows:
+
+      - do_backup. If column is present, empty rows will not be backed up.
+
+      - resource_url. The URL to the file for backup. Supports raw files
+      directly.
+
+      - Any other columns will be ignored.
+
+  Currently supported destination is a local directory. GitHub repos coming
+  soon.
+
+  Currently supported backup URLs:
+
+      - any raw files
+
+      - HackMD web urls (fetched as markdown)
+
+  When processing markdown files, YAML frontmatter can be used for certain
+  keys:
+
+      - filename: Allows overriding of the filename, normally processed from
+      header. Ex: myfile.md
+
+      - path: Allows nesting the backup file in a subdirectory.
 
 Options:
-  --resource-list TEXT  CSV file listing the urls to backup.
-  --github-repo TEXT    Repo in which to create backups. Ex: someorg/myrepo
-  --github-token TEXT
+  --resource-list TEXT  CSV file listing the urls to backup.  [required]
+  --destination TEXT    Local path or GitHub repo in which to write backups.
+                        Ex: path/to/dir, someorg/myrepo  [required]
+  --github-token TEXT   Personal access token for GitHub API.
   -y, --yes             Skip confirmation prompts
   -v, --verbose         Show output for each action
   -d, --debug           Show full debug output
