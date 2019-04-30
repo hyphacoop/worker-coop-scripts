@@ -139,7 +139,7 @@
         },
         "spreadsheet2shortlinks": {
             "git": "https://github.com/hyphacoop/spreadsheet2shortlinks",
-            "ref": "1c23889a1e095b540938cf3df969c76da7643f03"
+            "ref": "4e219c018096fcef18d4260323bb322f180820a7"
         },
         "urllib3": {
             "hashes": [
