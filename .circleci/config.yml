@@ -8,7 +8,8 @@ workflows:
 
   nightly:
     jobs:
-      - backup2github
+      # - backup_docs
+      - update_shortlinks
     triggers:
       - schedule:
           # Every night at 4am ET
@@ -55,7 +56,7 @@ jobs:
             - ~/.local
             - ~/.cache
 
-  backup2github:
+  backup_docs:
     <<: *default_job
     steps:
       - checkout
@@ -70,3 +71,19 @@ jobs:
               --github-token "$GITHUB_API_TOKEN" \
               --github-repo "$CIRCLE_PROJECT_USERNAME/december-retreat" \
               --resource-list "examples/files-to-backup.csv"
+
+  update_shortlinks:
+    <<: *default_job
+    steps:
+      - checkout
+      - run: {<<: *decrypt_files}
+      - restore_cache: {<<: *restore_cache}
+      - run: {<<: *install_dependencies}
+      - save_cache: {<<: *save_cache}
+      - run:
+          name: run script
+          command: |
+            pipenv run python gsheet2shortlinks.py --yes --verbose \
+              --gsheet "https://docs.google.com/spreadsheets/d/1DpnzCpXWgQr66nFJFIlpa5XSBrt8IfZaLVZH0_q6kcA/edit#gid=0" \
+              --domain-name "link.g0v.ca" \
+              --rebrandly-api-key "$REBRANDLY_API_KEY"
