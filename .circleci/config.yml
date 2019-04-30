@@ -24,7 +24,7 @@ version: 2
 jobs:
   default: &default_job
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.6.6
       # For the following sensitive envvars, check the CircleCI UI.
       #   - GITHUB_API_TOKEN
       #
