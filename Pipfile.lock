@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9bdaf8552668316317e2c770d032438070479947c8433c46fb4873d46dad714c"
+            "sha256": "5484c814a4a3f7a926d57ea6bee622bf34eb036d3a4183a4308273e445d5fdb3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -138,6 +138,7 @@
             "version": "==1.12.0"
         },
         "spreadsheet2shortlinks": {
+            "editable": true,
             "git": "https://github.com/hyphacoop/spreadsheet2shortlinks",
             "ref": "4e219c018096fcef18d4260323bb322f180820a7"
         },
