@@ -61,52 +61,20 @@ Options:
   -h, --help            Show this message and exit.
 ```
 
-### `gsheet2shortlinks.py`
+### Task: `update_shortlinks`
 
-This takes data from a GDrive spreadsheet ([sample][sample_shortlink_sheet]), and
-uses it to create/update shortlinks managed on Rebrandly.
 
-   [sample_shortlink_sheet]: https://docs.google.com/spreadsheets/d/12VUXPCpActC77wy6Q8Khyb-iZ_nlNwshO8XswYRj5XE/edit#gid=776462093
+Updates our `link.g0v.ca` Rebrandly shortlinks from a Google Spreadsheet.
 
-```
-$ pipenv run python gsheet2shortlinks.py --help
+Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 
-Usage: gsheet2shortlinks.py [OPTIONS]
+   [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
 
-  Create/update Rebrandly shortlinks from a Google Docs spreadsheet.
+:clock1030: Runs nightly at 4am ET.  
+:scroll: [Run logs][logs] accessible on Circle CI.  
+:hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
 
-  Here are some notes on spreadsheet columns:
-
-      * slashtag: the shortlink component of path.
-
-      * destination_url: where the shortlink points to.
-
-      * If the following columns exist and a --google-creds option is
-      passed, they will be updated:
-
-          * Note: These features are not yet implemented.
-
-          * created: date and time when the link was created and tracking
-          began.
-
-          * clicks: number of click-through since creation.
-
-      * Extra columns will have no effect.
-
-Options:
-  --gsheet <url>                  URL to publicly readable Google Spreadsheet,
-                                  including sheet ID gid  [required]
-  --rebrandly-api-key <string>    API key for Rebrandly  [required]
-  -d, --domain-name <example.com>
-                                  Shortlink domain on Rebrandly  [required if
-                                  multiple domains on account]
-  -y, --yes                       Skip confirmation prompts
-  -d, --debug                     Show full debug output
-  --noop                          Skip API calls that change/destroy data
-  -h, --help                      Show this message and exit.
-```
-
-Runs nightly at 4am ET.
+   [logs]: https://circleci.com/gh/hyphacoop/worker-coop-scripts/tree/master
 
 ## Technologies Used
 
@@ -149,3 +117,4 @@ environment. After installing, just follow these steps.
    [click]: http://click.pocoo.org/5/
    [circleci]: https://circleci.com/docs/2.0/about-circleci/
    [circleci-cron]: https://support.circleci.com/hc/en-us/articles/115015481128-Scheduling-jobs-cron-for-builds-
+   [config]: .circleci/config.yml
