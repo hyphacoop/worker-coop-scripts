@@ -60,16 +60,16 @@ class TitleParser(HTMLParser):
 @click.option('--gsheet',
               required=True,
               envvar='SHORTLINK_GSHEET',
-              help='URL to publicly readable Google Spreadsheet, including sheet ID gid',
+              help='URL to publicly readable Google Spreadsheet, including sheet ID gid. Env:SHORTLINK_GSHEET',
               metavar='<url>')
 @click.option('--rebrandly-api-key',
               required=True,
               envvar='REBRANDLY_API_KEY',
-              help='API key for Rebrandly',
+              help='API key for Rebrandly. Env:REBRANDLY_API_KEY',
               metavar='<string>')
 @click.option('--domain-name', '-d',
               envvar='SHORTLINK_DOMAIN',
-              help='Shortlink domain on Rebrandly  [required if multiple domains on account]',
+              help='Shortlink domain on Rebrandly. Env:SHORTLINK_DOMAIN  [required, if multi-domain account]',
               metavar='<example.com>')
 @common_params
 # TODO: Accomodate --verbose flag.
