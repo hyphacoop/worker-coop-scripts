@@ -85,5 +85,5 @@ jobs:
           command: |
             pipenv run spreadsheet2shortlinks --yes --verbose \
               --gsheet "https://docs.google.com/spreadsheets/d/1DpnzCpXWgQr66nFJFIlpa5XSBrt8IfZaLVZH0_q6kcA/edit#gid=0" \
-              --domain-name "link.hypha.club" \
+              --domain-name "link.hypha.coop" \
               --rebrandly-api-key "$REBRANDLY_API_KEY"
