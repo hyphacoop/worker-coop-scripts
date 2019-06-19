@@ -64,7 +64,7 @@ Options:
 ### Task: `update_shortlinks`
 
 
-Updates our `link.hypha.club` Rebrandly shortlinks from a Google Spreadsheet.
+Updates our `link.hypha.coop` Rebrandly shortlinks from a Google Spreadsheet.
 
 Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 
