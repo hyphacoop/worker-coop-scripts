@@ -64,10 +64,11 @@ Options:
 ### Task: `update_shortlinks`
 
 
-Updates our `link.hypha.coop` Rebrandly shortlinks from a Google Spreadsheet.
+Updates our `link.hypha.coop` Rebrandly shortlinks from [a Google Spreadsheet][shortlinks].
 
 Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 
+   [shortlinks]: https://links.hypha.coop/shortlinks
    [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
 
 :clock1030: Runs nightly at 4am ET.  
