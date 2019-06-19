@@ -8,14 +8,16 @@ Many of these run automatically.
 
 - [About This Repo](#about-this-repo)
 - [Technologies Used](#technologies-used)
-- [Scripts](#scripts)
-  - [`backup2github` command](#backup2github-command)
-  - [`gsheet2shortlinks.py`](#gsheet2shortlinkspy)
+- [Tasks/Jobs](#tasksjobs)
+  - [`backup2github`](#backup2github)
+  - [`update_shortlinks`](#update_shortlinks)
 - [Local Development](#computer-local-development)
 
 ## About This Repo
 
-This is a repository of one-off scripts that we might like to run regularly. They can be run nightly or on any other schedule, using [CircleCI's workflows feature][workflows]. We can use CircleCI and its workflows almost like a publicly visible cron of "safe" and "public" scripted tasks, with secret environment variables hidden. The schedule is set in the [`.circleci/config.yml`][config] file within this repo.
+This is a repository of scripts that we might like to run regularly. In CirclCI terms, we are running our tasks/scripts as _jobs_ in scheduled [_workflows_][workflows]. They can be run nightly or on any other schedule. We in effect use CircleCI and its features almost like a **publicly visible cron of "safe" and "public" scripted tasks**, with secret environment variables hidden.
+
+The schedule is set in the [`.circleci/config.yml`][config] file within this repo.
 
    [workflows]: https://circleci.com/docs/2.0/workflows/
 
@@ -27,9 +29,26 @@ This is a repository of one-off scripts that we might like to run regularly. The
 - [**CircleCI.**][circleci] A script-running service that [runs scheduled
   tasks][circleci-cron] for us in the cloud.
 
-## Scripts
+## Tasks/Jobs
 
-### `backup2github` command
+### `update_shortlinks`
+
+Updates our `link.hypha.coop` Rebrandly shortlinks from [a Google Spreadsheet][shortlinks].
+
+Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
+
+   [shortlinks]: https://link.hypha.coop/shortlinks
+   [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
+
+:clock1030: Runs nightly at 4am ET.  
+:scroll: [Run logs][logs] accessible on Circle CI.  
+:hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
+
+   [logs]: https://circleci.com/gh/hyphacoop/workflows/worker-coop-scripts
+
+### `backup2github`
+
+:clock1030: Runs never. WIP.
 
 ```
 $ pipenv run python cli.py backup2github --help
@@ -75,22 +94,6 @@ Options:
   -n, --noop            Skip API calls that change/destroy data
   -h, --help            Show this message and exit.
 ```
-
-### Task: `update_shortlinks`
-
-
-Updates our `link.hypha.coop` Rebrandly shortlinks from [a Google Spreadsheet][shortlinks].
-
-Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
-
-   [shortlinks]: https://link.hypha.coop/shortlinks
-   [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
-
-:clock1030: Runs nightly at 4am ET.  
-:scroll: [Run logs][logs] accessible on Circle CI.  
-:hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
-
-   [logs]: https://circleci.com/gh/hyphacoop/worker-coop-scripts/tree/master
 
 ## :computer: Local Development
 
