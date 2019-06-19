@@ -8,6 +8,7 @@ Many of these run automatically.
 
 - Scripts
   - [`backup2github` command](#backup2github-command)
+  - [`gsheet2shortlinks.py`](#gsheet2shortlinkspy)
 - [Technologies Used](#technologies-used)
 - [Local Development](#computer-local-development)
 
@@ -60,6 +61,21 @@ Options:
   -h, --help            Show this message and exit.
 ```
 
+### Task: `update_shortlinks`
+
+
+Updates our `link.hypha.club` Rebrandly shortlinks from a Google Spreadsheet.
+
+Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
+
+   [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
+
+:clock1030: Runs nightly at 4am ET.  
+:scroll: [Run logs][logs] accessible on Circle CI.  
+:hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
+
+   [logs]: https://circleci.com/gh/hyphacoop/worker-coop-scripts/tree/master
+
 ## Technologies Used
 
 - **Python.** A programming langauge common in scripting.
@@ -101,3 +117,4 @@ environment. After installing, just follow these steps.
    [click]: http://click.pocoo.org/5/
    [circleci]: https://circleci.com/docs/2.0/about-circleci/
    [circleci-cron]: https://support.circleci.com/hc/en-us/articles/115015481128-Scheduling-jobs-cron-for-builds-
+   [config]: .circleci/config.yml

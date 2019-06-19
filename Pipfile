@@ -11,6 +11,7 @@ requests = "*"
 pygithub = "*"
 lxml = "*"
 python-frontmatter = "*"
+spreadsheet2shortlinks = {editable = true,git = "https://github.com/hyphacoop/spreadsheet2shortlinks"}
 
 [requires]
 python_version = "3.6"
