@@ -6,11 +6,26 @@ Many of these run automatically.
 
 ## Contents
 
-- Scripts
+- [About This Repo](#about-this-repo)
+- [Technologies Used](#technologies-used)
+- [Scripts](#scripts)
   - [`backup2github` command](#backup2github-command)
   - [`gsheet2shortlinks.py`](#gsheet2shortlinkspy)
-- [Technologies Used](#technologies-used)
 - [Local Development](#computer-local-development)
+
+## About This Repo
+
+This is a repository of one-off scripts that we might like to run regularly. They can be run nightly or regularly, using [CircleCI's workflow feature][workflows]. We use it like a publicly visible cron of "safe" and "public" scripted tasks, with secret environment variables hidden. The schedule is set in the [`.circleci/config.yml`][config] file within this repo.
+
+   [workflows]: https://circleci.com/docs/2.0/workflows/
+
+## Technologies Used
+
+- **Python.** A programming langauge common in scripting.
+- [**Click.**][click] A Python library for writing simple command-line
+  tools.
+- [**CircleCI.**][circleci] A script-running service that [runs scheduled
+  tasks][circleci-cron] for us in the cloud.
 
 ## Scripts
 
@@ -76,14 +91,6 @@ Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 :hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
 
    [logs]: https://circleci.com/gh/hyphacoop/worker-coop-scripts/tree/master
-
-## Technologies Used
-
-- **Python.** A programming langauge common in scripting.
-- [**Click.**][click] A Python library for writing simple command-line
-  tools.
-- [**CircleCI.**][circleci] A script-running service that [runs scheduled
-  tasks][circleci-cron] for us in the cloud.
 
 ## :computer: Local Development
 
