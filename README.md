@@ -15,7 +15,7 @@ Many of these run automatically.
 
 ## About This Repo
 
-This is a repository of one-off scripts that we might like to run regularly. They can be run nightly or regularly, using [CircleCI's workflow feature][workflows]. We use it like a publicly visible cron of "safe" and "public" scripted tasks, with secret environment variables hidden. The schedule is set in the [`.circleci/config.yml`][config] file within this repo.
+This is a repository of one-off scripts that we might like to run regularly. They can be run nightly or on any other schedule, using [CircleCI's workflows feature][workflows]. We can use CircleCI and its workflows almost like a publicly visible cron of "safe" and "public" scripted tasks, with secret environment variables hidden. The schedule is set in the [`.circleci/config.yml`][config] file within this repo.
 
    [workflows]: https://circleci.com/docs/2.0/workflows/
 
