@@ -44,7 +44,7 @@ Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 :scroll: [Run logs][logs] accessible on Circle CI.  
 :hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
 
-   [logs]: https://circleci.com/gh/hyphacoop/workflows/worker-coop-scripts
+   [logs]: https://link.hypha.coop/logs
 
 ### `backup2github`
 
