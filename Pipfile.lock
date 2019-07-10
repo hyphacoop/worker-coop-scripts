@@ -138,7 +138,7 @@
         "spreadsheet2shortlinks": {
             "editable": true,
             "git": "https://github.com/hyphacoop/spreadsheet2shortlinks",
-            "ref": "4c9b765816c448308f5198eba00750546ba63224"
+            "ref": "6a5cac6ae835ba39a21666c2cd0367b85321105c"
         },
         "urllib3": {
             "hashes": [
