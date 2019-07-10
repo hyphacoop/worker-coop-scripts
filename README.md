@@ -33,7 +33,7 @@ The schedule is set in the [`.circleci/config.yml`][config] file within this rep
 
 ### `update_shortlinks`
 
-Updates our `link.hypha.coop` Rebrandly shortlinks from [a Google Spreadsheet][shortlinks].
+Updates our `link.hypha.coop` Rebrandly shortlinks from [a CSV hosted on GitHub][shortlinks].
 
 Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
 
