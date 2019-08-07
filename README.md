@@ -139,8 +139,8 @@ workstation.
    job run using code in `master` branch):
 
   ```
-  $ EXPORT CIRCLE_API_USER_TOKEN=xxxxxxxxxxxx
-  $ EXPORT CIRCLE_JOB_NAME=update_shortlinks
+  $ export CIRCLE_API_USER_TOKEN=xxxxxxxxxxxx
+  $ export CIRCLE_JOB_NAME=update_shortlinks
   $ curl -vvv -u ${CIRCLE_API_USER_TOKEN} -d build_parameters[CIRCLE_JOB]=$CIRCLE_JOB_NAME "https://circleci.com/api/v1.1/project/github/hyphacoop/worker-coop-scripts/tree/master"
   ```
 
