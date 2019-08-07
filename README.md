@@ -124,6 +124,28 @@ environment. After installing, just follow these steps.
 3. Edit the file according to its comments. (Some scripts can take
    command-line args directly.)
 
+## Forcing a script run
+
+Sometimes you may want to force a run of a CircleCI job/script/task
+outside the normal schedule. This is possible from your local
+workstation.
+
+1. Get your CircleCI token.
+
+2. Confirm the CircleCI job name in [the config file][config]. Ex:
+   `update_shortlinks`
+
+3. Run the following commands locally (assuming you want to force the
+   job run using code in `master` branch):
+
+  ```
+  $ EXPORT CIRCLE_API_USER_TOKEN=xxxxxxxxxxxx
+  $ EXPORT CIRCLE_JOB_NAME=update_shortlinks
+  $ curl -vvv -u ${CIRCLE_API_USER_TOKEN} -d build_parameters[CIRCLE_JOB]=$CIRCLE_JOB_NAME "https://circleci.com/api/v1.1/project/github/hyphacoop/worker-coop-scripts/tree/master"
+  ```
+
+4. Check the [log][logs] to confirm it ran successfully.
+
 <!-- Links -->
    [click]: http://click.pocoo.org/5/
    [circleci]: https://circleci.com/docs/2.0/about-circleci/
