@@ -124,7 +124,7 @@ environment. After installing, just follow these steps.
 3. Edit the file according to its comments. (Some scripts can take
    command-line args directly.)
 
-## Forcing a script run
+## Manually forcing a script run
 
 Sometimes you may want to force a run of a CircleCI job/script/task
 outside the normal schedule. This is possible from your local
