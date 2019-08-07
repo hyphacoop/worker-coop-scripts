@@ -126,9 +126,16 @@ environment. After installing, just follow these steps.
 
 ## Manually forcing a script run
 
-Sometimes you may want to force a run of a CircleCI job/script/task
-outside the normal schedule. This is possible from your local
-workstation.
+Sometimes you may want to manually force an run of a CircleCI
+job/script/task outside the normal schedule. This is possible in two
+ways.
+
+The simplest way is to navigate through the
+[CircleCI logs][logs] into a specific script run, and then click the "Rebuild"
+button in the top-right. (You may need to log in first.)
+
+However, if you've just merged code changes, you'll need to kick off a
+fresh run using your new code. You can do this from the commandline:
 
 1. Get your CircleCI token.
 
