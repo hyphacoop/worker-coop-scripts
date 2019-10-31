@@ -6,10 +6,18 @@
 workflows:
   version: 2
 
-  nightly:
+  # base workflow
+  on_commit: &on_commit
     jobs:
       # - backup_docs
-      - update_shortlinks
+      - update_shortlinks:
+        filters:
+          branches:
+            only: master
+
+  # scheduled workflow
+  nightly:
+    <<: *on_commit
     triggers:
       - schedule:
           # Every night at 4am ET

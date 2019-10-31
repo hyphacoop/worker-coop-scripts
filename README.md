@@ -31,6 +31,8 @@ The schedule is set in the [`.circleci/config.yml`][config] file within this rep
 
 ## Tasks/Jobs
 
+As configured, jobs will run both **nightly**, and **on each commit** to `master`. (Be sure that all jobs are ok to run repeatedly.)
+
 ### `update_shortlinks`
 
 Updates our `link.hypha.coop` Rebrandly shortlinks from [a Google Spreadsheet][shortlinks].
@@ -126,16 +128,19 @@ environment. After installing, just follow these steps.
 
 ## Manually forcing a script run
 
-Sometimes you may want to manually force an run of a CircleCI
+Sometimes you may want to manually force the running of a CircleCI
 job/script/task outside the normal schedule. This is possible in two
 ways.
+
+### Web UI
 
 The simplest way is to navigate through the
 [CircleCI logs][logs] into a specific script run, and then click the "Rebuild"
 button in the top-right. (You may need to log in first.)
 
-However, if you've just merged code changes, you'll need to kick off a
-fresh run using your new code. You can do this from the commandline:
+### Command Line
+
+If you're a power user, you can do this from the command line:
 
 1. Get your CircleCI token.
 
