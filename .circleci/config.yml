@@ -7,6 +7,7 @@ workflows:
   version: 2
 
   # base workflow
+  # See: https://ideas.circleci.com/ideas/CCI-I-627
   on_commit: &on_commit
     jobs:
       # - backup_docs

@@ -140,7 +140,8 @@ button in the top-right. (You may need to log in first.)
 
 ### Command Line
 
-If you're a power user, you can do this from the command line:
+If you're a power user, you can do this from the command line
+([docs][circleci-api-trigger]):
 
 1. Get your CircleCI token.
 
@@ -163,3 +164,4 @@ If you're a power user, you can do this from the command line:
    [circleci]: https://circleci.com/docs/2.0/about-circleci/
    [circleci-cron]: https://support.circleci.com/hc/en-us/articles/115015481128-Scheduling-jobs-cron-for-builds-
    [config]: .circleci/config.yml
+   [circleci-api-trigger]: https://circleci.com/docs/2.0/api-job-trigger/
