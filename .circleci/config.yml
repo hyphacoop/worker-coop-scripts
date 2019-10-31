@@ -6,9 +6,18 @@
 workflows:
   version: 2
 
+  # Need to define two workflows
+  # See: https://ideas.circleci.com/ideas/CCI-I-627
+  on_commit:
+    jobs:
+      - update_shortlinks:
+          filters:
+            branches:
+              only: master
+
+  # scheduled workflow
   nightly:
     jobs:
-      # - backup_docs
       - update_shortlinks
     triggers:
       - schedule:

@@ -31,6 +31,8 @@ The schedule is set in the [`.circleci/config.yml`][config] file within this rep
 
 ## Tasks/Jobs
 
+As configured, jobs will run both **nightly**, and **on each commit** to `master`. (Be sure that all jobs are ok to run repeatedly.)
+
 ### `update_shortlinks`
 
 Updates our `link.hypha.coop` Rebrandly shortlinks from [a CSV hosted on GitHub][shortlinks].
@@ -124,8 +126,42 @@ environment. After installing, just follow these steps.
 3. Edit the file according to its comments. (Some scripts can take
    command-line args directly.)
 
+## Manually forcing a script run
+
+Sometimes you may want to manually force the running of a CircleCI
+job/script/task outside the normal schedule. This is possible in two
+ways.
+
+### Web UI
+
+The simplest way is to navigate through the
+[CircleCI logs][logs] into a specific script run, and then click the "Rebuild"
+button in the top-right. (You may need to log in first.)
+
+### Command Line
+
+If you're a power user, you can do this from the command line
+([docs][circleci-api-trigger]):
+
+1. Get your CircleCI token.
+
+2. Confirm the CircleCI job name in [the config file][config]. Ex:
+   `update_shortlinks`
+
+3. Run the following commands locally (assuming you want to force the
+   job run using code in `master` branch):
+
+  ```
+  $ export CIRCLE_API_USER_TOKEN=xxxxxxxxxxxx
+  $ export CIRCLE_JOB_NAME=update_shortlinks
+  $ curl -vvv -u ${CIRCLE_API_USER_TOKEN} -d build_parameters[CIRCLE_JOB]=$CIRCLE_JOB_NAME "https://circleci.com/api/v1.1/project/github/hyphacoop/worker-coop-scripts/tree/master"
+  ```
+
+4. Check the [log][logs] to confirm it ran successfully.
+
 <!-- Links -->
    [click]: http://click.pocoo.org/5/
    [circleci]: https://circleci.com/docs/2.0/about-circleci/
    [circleci-cron]: https://support.circleci.com/hc/en-us/articles/115015481128-Scheduling-jobs-cron-for-builds-
    [config]: .circleci/config.yml
+   [circleci-api-trigger]: https://circleci.com/docs/2.0/api-job-trigger/
