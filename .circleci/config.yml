@@ -10,14 +10,13 @@ workflows:
   # See: https://ideas.circleci.com/ideas/CCI-I-627
   on_commit: &on_commit
     jobs:
-      # - backup_docs
       - update_shortlinks:
-        filters:
-          branches:
-            only: master
+          filters:
+            branches:
+              only: master
 
   # scheduled workflow
-  nightly:
+  nightly: &nightly
     <<: *on_commit
     triggers:
       - schedule:
