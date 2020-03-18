@@ -31,7 +31,7 @@ The schedule is set in the [`.circleci/config.yml`][config] file within this rep
 
 ## Tasks/Jobs
 
-As configured, jobs will run both **nightly**, and **on each commit** to `master`. (Be sure that all jobs are ok to run repeatedly.)
+As configured, jobs will run both **every 30 minutes**, and **on each commit** to `master`. (Be sure that all jobs are ok to run repeatedly.)
 
 ### `update_shortlinks`
 
@@ -42,7 +42,7 @@ Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
    [shortlinks]: https://link.hypha.coop/shortlinks
    [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
 
-:clock1030: Runs nightly at 4am ET.  
+:clock1030: Runs every 30 minutes.  
 :scroll: [Run logs][logs] accessible on Circle CI.  
 :hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
 
