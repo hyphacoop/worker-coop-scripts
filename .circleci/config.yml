@@ -10,15 +10,9 @@ workflows:
   # See: https://ideas.circleci.com/ideas/CCI-I-627
   on-commit:
     jobs:
-      - update-shortlinks:
-          filters:
-            branches:
-              only: master
-
   # scheduled workflow
   every-15-min:
     jobs:
-      - update-shortlinks
     triggers:
       - schedule:
           # Every 30 minutes
@@ -81,19 +75,3 @@ jobs:
               --github-token "$GITHUB_API_TOKEN" \
               --github-repo "$CIRCLE_PROJECT_USERNAME/december-retreat" \
               --resource-list "examples/files-to-backup.csv"
-
-  update-shortlinks:
-    <<: *default_job
-    steps:
-      - checkout
-      - run: {<<: *decrypt_files}
-      - restore_cache: {<<: *restore_cache}
-      - run: {<<: *install_dependencies}
-      - save_cache: {<<: *save_cache}
-      - run:
-          name: run script
-          command: |
-            pipenv run spreadsheet2shortlinks --yes --verbose \
-              --spreadsheet "https://github.com/hyphacoop/shortlinks/blob/master/shortlinks.csv" \
-              --domain-name "link.hypha.coop" \
-              --rebrandly-api-key "$REBRANDLY_API_KEY"
