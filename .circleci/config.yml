@@ -11,13 +11,13 @@ workflows:
 #  on-commit:
 #    jobs:
   # scheduled workflow
-  every-15-min:
-    jobs:
-    triggers:
-      - schedule:
-          # Every 30 minutes
-          # See: https://circleci.com/docs/2.0/workflows/#specifying-a-valid-schedule
-          cron: "0,30 * * * *"
+#  every-15-min:
+#    jobs:
+#    triggers:
+#      - schedule:
+#          # Every 30 minutes
+#          # See: https://circleci.com/docs/2.0/workflows/#specifying-a-valid-schedule
+#          cron: "0,30 * * * *"
 
 
 version: 2
