@@ -10,7 +10,6 @@ Many of these run automatically.
 - [Technologies Used](#technologies-used)
 - [Tasks/Jobs](#tasksjobs)
   - [`backup2github`](#backup2github)
-  - [`update_shortlinks`](#update_shortlinks)
 - [Local Development](#computer-local-development)
 
 ## About This Repo
@@ -32,21 +31,6 @@ The schedule is set in the [`.circleci/config.yml`][config] file within this rep
 ## Tasks/Jobs
 
 As configured, jobs will run both **every 30 minutes**, and **on each commit** to `master`. (Be sure that all jobs are ok to run repeatedly.)
-
-### `update_shortlinks`
-
-Updates our `link.hypha.coop` Rebrandly shortlinks from [a CSV hosted on GitHub][shortlinks].
-
-Uses [`hyphacoop/spreadsheet2shortlinks`][shortlinks-cli] commandline tool.
-
-   [shortlinks]: https://link.hypha.coop/shortlinks
-   [shortlinks-cli]: https://github.com/hyphacoop/spreadsheet2shortlinks
-
-:clock1030: Runs every 30 minutes.  
-:scroll: [Run logs][logs] accessible on Circle CI.  
-:hammer_and_wrench: Configured in [`.circleci/config.yml`][config]
-
-   [logs]: https://link.hypha.coop/logs
 
 ### `backup2github`
 
@@ -146,14 +130,14 @@ If you're a power user, you can do this from the command line
 1. Get your CircleCI token.
 
 2. Confirm the CircleCI job name in [the config file][config]. Ex:
-   `update_shortlinks`
+   `backup2github`
 
 3. Run the following commands locally (assuming you want to force the
    job run using code in `master` branch):
 
   ```
   $ export CIRCLE_API_USER_TOKEN=xxxxxxxxxxxx
-  $ export CIRCLE_JOB_NAME=update_shortlinks
+  $ export CIRCLE_JOB_NAME=backup2github
   $ curl -vvv -u ${CIRCLE_API_USER_TOKEN} -d build_parameters[CIRCLE_JOB]=$CIRCLE_JOB_NAME "https://circleci.com/api/v1.1/project/github/hyphacoop/worker-coop-scripts/tree/master"
   ```
 
