@@ -18,9 +18,6 @@ workflows:
           # Every 30 minutes
           # See: https://circleci.com/docs/2.0/workflows/#specifying-a-valid-schedule
           cron: "0,30 * * * *"
-          filters:
-            branches:
-              only: master
 
 
 version: 2
