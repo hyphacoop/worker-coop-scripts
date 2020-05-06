@@ -8,8 +8,8 @@ workflows:
 
   # Need to define two workflows
   # See: https://ideas.circleci.com/ideas/CCI-I-627
-  on-commit:
-    jobs:
+#  on-commit:
+#    jobs:
   # scheduled workflow
   every-15-min:
     jobs:
